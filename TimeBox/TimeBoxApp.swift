@@ -71,7 +71,17 @@ struct AppFeature: Reducer {
         Scope(state: \.timebox, action: /Action.timebox) {
             TimeBox()
         }
-        EmptyReducer()
+        Reduce { state, action in
+            switch action {
+            case .tabSelected(let tab):
+                state.selectedTab = tab
+                return .none
+            case .todos:
+                return .none
+            case .timebox:
+                return .none
+            }
+        }
     }
 }
 
