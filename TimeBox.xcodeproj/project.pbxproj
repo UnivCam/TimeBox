@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF62A90A75B00D01DF3 /* Todos.swift */; };
 		6F543AF92A90A7D900D01DF3 /* TimeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF82A90A7D900D01DF3 /* TimeBox.swift */; };
+		6F543AFB2A90AED200D01DF3 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AFA2A90AED200D01DF3 /* Todo.swift */; };
 		6F81A42F2A908E480087F543 /* TimeBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A42E2A908E480087F543 /* TimeBoxApp.swift */; };
 		6F81A4332A908E490087F543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81A4322A908E490087F543 /* Assets.xcassets */; };
 		6F81A4362A908E490087F543 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81A4352A908E490087F543 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		6F543AF62A90A75B00D01DF3 /* Todos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todos.swift; sourceTree = "<group>"; };
 		6F543AF82A90A7D900D01DF3 /* TimeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBox.swift; sourceTree = "<group>"; };
+		6F543AFA2A90AED200D01DF3 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		6F81A42B2A908E480087F543 /* TimeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81A42E2A908E480087F543 /* TimeBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxApp.swift; sourceTree = "<group>"; };
 		6F81A4322A908E490087F543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F543AFC2A90B2C300D01DF3 /* Todos */ = {
+			isa = PBXGroup;
+			children = (
+				6F543AF62A90A75B00D01DF3 /* Todos.swift */,
+				6F543AFA2A90AED200D01DF3 /* Todo.swift */,
+			);
+			path = Todos;
+			sourceTree = "<group>";
+		};
 		6F81A4222A908E480087F543 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				6F81A42E2A908E480087F543 /* TimeBoxApp.swift */,
-				6F543AF62A90A75B00D01DF3 /* Todos.swift */,
+				6F543AFC2A90B2C300D01DF3 /* Todos */,
 				6F543AF82A90A7D900D01DF3 /* TimeBox.swift */,
 				6F81A4322A908E490087F543 /* Assets.xcassets */,
 				6F81A4342A908E490087F543 /* Preview Content */,
@@ -151,6 +162,7 @@
 				6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */,
 				6F81A42F2A908E480087F543 /* TimeBoxApp.swift in Sources */,
 				6F543AF92A90A7D900D01DF3 /* TimeBox.swift in Sources */,
+				6F543AFB2A90AED200D01DF3 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
