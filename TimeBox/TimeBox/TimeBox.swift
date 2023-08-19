@@ -25,7 +25,7 @@ struct TimeBox: Reducer {
     enum Action: Equatable {
         case destination(PresentationAction<Destination.Action>)
         
-        case showEvent(id: Event.State.ID)
+        case eventButtonTapped(id: Event.State.ID)
     }
     
     struct Destination: Reducer {
@@ -55,7 +55,7 @@ struct TimeBox: Reducer {
                 return .none
             case .destination:
                 return .none
-            case .showEvent(let id):
+            case .eventButtonTapped(let id):
                 guard let event = state.events[id: id] else { return .none }
                 state.destination = .event(event)
                 return .none
@@ -76,17 +76,19 @@ struct TimeBoxView: View {
                 ZStack(alignment: .top) {
                     VStack(spacing: 0) {
                         ForEach(viewStore.events.map(\.id), id: \.self) { id in
-                            Rectangle()
-                                .onTapGesture {
-                                    viewStore.send(.showEvent(id: id))
-                                }
-                                .frame(height: 80)
-                                .foregroundColor(
-                                    (viewStore.events[id: id]?.isActive ?? false) ? Color.blue : Color(UIColor.systemGroupedBackground)
-                                )
-                                .overlay(
-                                    Text(viewStore.events[id: id]?.description ?? "")
-                                )
+                            Button(action: {
+                                viewStore.send(.eventButtonTapped(id: id))
+                            }, label: {
+                                Rectangle()
+                                    .frame(height: 80)
+                            })
+                            .buttonStyle(EventButtonStyle())
+                            .foregroundColor(
+                                (viewStore.events[id: id]?.isActive ?? false) ? Color.blue : Color(UIColor.systemGroupedBackground)
+                            )
+                            .overlay(
+                                Text(viewStore.events[id: id]?.description ?? "")
+                            )
                         }
                     }
                     .padding(.top, 10)
@@ -114,8 +116,15 @@ struct TimeBoxView: View {
                 action: TimeBox.Destination.Action.event
             ) { store in
                 EventView(store: store)
+                    .presentationDetents([.medium])
             }
         }
     }
 }
 
+private struct EventButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .border(configuration.isPressed ? .gray : .clear)
+    }
+}
