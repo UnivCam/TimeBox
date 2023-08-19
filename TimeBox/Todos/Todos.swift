@@ -19,11 +19,13 @@ struct Todos: Reducer {
         case todo(id: Todo.State.ID, action: Todo.Action)
     }
     
+    @Dependency(\.uuid) var uuid
+    
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .addTodoButtonTapped:
-                state.todos.append(Todo.State())
+                state.todos.append(Todo.State(id: self.uuid()))
                 return .none
             case let .delete(indexSet):
                 for index in indexSet {
