@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF62A90A75B00D01DF3 /* Todos.swift */; };
+		6F543AF92A90A7D900D01DF3 /* TimeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF82A90A7D900D01DF3 /* TimeBox.swift */; };
 		6F81A42F2A908E480087F543 /* TimeBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A42E2A908E480087F543 /* TimeBoxApp.swift */; };
-		6F81A4312A908E480087F543 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F81A4302A908E480087F543 /* ContentView.swift */; };
 		6F81A4332A908E490087F543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81A4322A908E490087F543 /* Assets.xcassets */; };
 		6F81A4362A908E490087F543 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F81A4352A908E490087F543 /* Preview Assets.xcassets */; };
+		6F81A43E2A9097C40087F543 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6F81A43D2A9097C40087F543 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F543AF62A90A75B00D01DF3 /* Todos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todos.swift; sourceTree = "<group>"; };
+		6F543AF82A90A7D900D01DF3 /* TimeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBox.swift; sourceTree = "<group>"; };
 		6F81A42B2A908E480087F543 /* TimeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F81A42E2A908E480087F543 /* TimeBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBoxApp.swift; sourceTree = "<group>"; };
-		6F81A4302A908E480087F543 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6F81A4322A908E490087F543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F81A4352A908E490087F543 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F81A43E2A9097C40087F543 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				6F81A42E2A908E480087F543 /* TimeBoxApp.swift */,
-				6F81A4302A908E480087F543 /* ContentView.swift */,
+				6F543AF62A90A75B00D01DF3 /* Todos.swift */,
+				6F543AF82A90A7D900D01DF3 /* TimeBox.swift */,
 				6F81A4322A908E490087F543 /* Assets.xcassets */,
 				6F81A4342A908E490087F543 /* Preview Content */,
 			);
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = TimeBox;
+			packageProductDependencies = (
+				6F81A43D2A9097C40087F543 /* ComposableArchitecture */,
+			);
 			productName = TimeBox;
 			productReference = 6F81A42B2A908E480087F543 /* TimeBox.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 6F81A4222A908E480087F543;
+			packageReferences = (
+				6F81A43C2A9097C40087F543 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 6F81A42C2A908E480087F543 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F81A4312A908E480087F543 /* ContentView.swift in Sources */,
+				6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */,
 				6F81A42F2A908E480087F543 /* TimeBoxApp.swift in Sources */,
+				6F543AF92A90A7D900D01DF3 /* TimeBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +353,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6F81A43C2A9097C40087F543 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F81A43D2A9097C40087F543 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6F81A43C2A9097C40087F543 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F81A4232A908E480087F543 /* Project object */;
 }
