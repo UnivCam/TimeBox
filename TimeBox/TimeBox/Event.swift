@@ -52,9 +52,15 @@ struct EventView: View {
                     Divider()
                     
                     Section {
-                        ColorPanel(colors: .constant(.default)) { color in
-                            viewStore.send(.binding(.set(\.$tagColor, color.toHex())))
-                        }
+                        ColorPanel(
+                            colors: .constant(.default),
+                            selection: Binding<Color?>(
+                                get: { Color(hex: viewStore.tagColor ?? "") },
+                                set: { color in
+                                    viewStore.send(.binding(.set(\.$tagColor, color?.toHex())))
+                                }
+                            )
+                        )
                     } header: {
                         Text("Color Tag")
                             .bold()
