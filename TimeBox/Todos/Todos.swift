@@ -25,7 +25,7 @@ struct Todos: Reducer {
         Reduce { state, action in
             switch action {
             case .addTodoButtonTapped:
-                state.todos.append(Todo.State(id: self.uuid()))
+                state.todos.append(Todo.State())
                 return .none
             case let .delete(indexSet):
                 for index in indexSet {

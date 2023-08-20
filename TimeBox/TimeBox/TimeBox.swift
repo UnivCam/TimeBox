@@ -12,14 +12,7 @@ struct TimeBox: Reducer {
     struct State: Equatable {
         @PresentationState var destination: Destination.State?
         
-        var events: IdentifiedArrayOf<Event.State> = [
-            Event.State(),
-            Event.State(),
-            Event.State(),
-            Event.State(),
-            Event.State(),
-            Event.State()
-        ]
+        var events: IdentifiedArrayOf<Event.State> = []
     }
     
     enum Action: Equatable {
@@ -95,9 +88,9 @@ struct TimeBoxView: View {
                     .padding(.leading, 40)
                     
                     VStack(spacing: 60) {
-                        ForEach(0...viewStore.events.count + 1, id: \.self) { time in
+                        ForEach(0...viewStore.events.count, id: \.self) { time in
                             HStack(spacing: 0) {
-                                Text("\(time)")
+                                Text("\(9 + time)")
                                     .foregroundColor(.gray)
                                     .frame(width: 40, height: 20, alignment: .trailing)
                                 VStack { Divider() }

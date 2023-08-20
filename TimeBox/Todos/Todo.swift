@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct Todo: Reducer {
     struct State: Equatable, Identifiable {
-        let id: UUID
+        let id: UUID = UUID()
         @BindingState var description: String = ""
         @BindingState var hasPriority: Bool = false
     }
