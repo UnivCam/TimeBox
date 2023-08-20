@@ -71,6 +71,8 @@ struct AppView: View {
 struct AppFeature: Reducer {
     enum Tab { case todos, timebox }
     struct State: Equatable {
+        // FIXME: AppLaunch flag to prevent data loss at first `inActive` ScenePhase
+        var isAppLaunched: Bool = false
         var todos: Todos.State
         var timebox: TimeBox.State
         var selectedTab: Tab
@@ -110,6 +112,7 @@ struct AppFeature: Reducer {
                     )
                 }
             case .didChangeScenePhase(let scenePhase):
+                guard state.isAppLaunched else { return .none }
                 switch scenePhase {
                 case .inactive:
                     let todos = state.todos.todos.map { Models.Todo(description: $0.description, hasPriority: $0.hasPriority) }
@@ -117,7 +120,6 @@ struct AppFeature: Reducer {
                     let timeBox = Models.TimeBox(todos: todos, events: events)
                     return .run { _ in
                         let filename = dateFormatter.string(from: date())
-                        try await fileClient.delete(filename)
                         try await fileClient.save(timeBox, to: filename)
                     }
                 default:
@@ -130,6 +132,7 @@ struct AppFeature: Reducer {
                 state.timebox.events = IdentifiedArray(
                     uniqueElements: timeBox.events.map { Event.State(description: $0.description, isActive: $0.isActive) }
                 )
+                state.isAppLaunched = true
                 return .none
             case .timeBoxLoaded(.failure):
                 state.timebox.events = [
@@ -139,6 +142,7 @@ struct AppFeature: Reducer {
                     Event.State(), Event.State(), Event.State(),
                     Event.State(), Event.State(), Event.State()
                 ]
+                state.isAppLaunched = true
                 return .none
             case .tabSelected(let tab):
                 state.selectedTab = tab
