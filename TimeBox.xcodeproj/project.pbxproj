@@ -10,6 +10,7 @@
 		6F1CA66F2A91414700587D81 /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CA66E2A91414700587D81 /* FileClient.swift */; };
 		6F1CA6712A9141AA00587D81 /* FileClient+LiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CA6702A9141AA00587D81 /* FileClient+LiveKey.swift */; };
 		6F1CA6782A9144F300587D81 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CA6772A9144F300587D81 /* Models.swift */; };
+		6F1FD9322A91CF1D006E7987 /* ColorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FD9312A91CF1D006E7987 /* ColorPanel.swift */; };
 		6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF62A90A75B00D01DF3 /* Todos.swift */; };
 		6F543AF92A90A7D900D01DF3 /* TimeBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AF82A90A7D900D01DF3 /* TimeBox.swift */; };
 		6F543AFB2A90AED200D01DF3 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F543AFA2A90AED200D01DF3 /* Todo.swift */; };
@@ -24,6 +25,7 @@
 		6F1CA66E2A91414700587D81 /* FileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileClient.swift; sourceTree = "<group>"; };
 		6F1CA6702A9141AA00587D81 /* FileClient+LiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileClient+LiveKey.swift"; sourceTree = "<group>"; };
 		6F1CA6772A9144F300587D81 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		6F1FD9312A91CF1D006E7987 /* ColorPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPanel.swift; sourceTree = "<group>"; };
 		6F543AF62A90A75B00D01DF3 /* Todos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todos.swift; sourceTree = "<group>"; };
 		6F543AF82A90A7D900D01DF3 /* TimeBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBox.swift; sourceTree = "<group>"; };
 		6F543AFA2A90AED200D01DF3 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 				6F1CA6772A9144F300587D81 /* Models.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6F1FD9342A91D956006E7987 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F1FD9312A91CF1D006E7987 /* ColorPanel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6F543AFC2A90B2C300D01DF3 /* Todos */ = {
@@ -105,6 +115,7 @@
 				6F543AFD2A90B54700D01DF3 /* TimeBox */,
 				6F1CA66D2A91413900587D81 /* FileClient */,
 				6F1CA6762A9144E900587D81 /* Models */,
+				6F1FD9342A91D956006E7987 /* Views */,
 				6F81A4322A908E490087F543 /* Assets.xcassets */,
 				6F81A4342A908E490087F543 /* Preview Content */,
 			);
@@ -195,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1FD9322A91CF1D006E7987 /* ColorPanel.swift in Sources */,
 				6F543AF72A90A75B00D01DF3 /* Todos.swift in Sources */,
 				6F81A42F2A908E480087F543 /* TimeBoxApp.swift in Sources */,
 				6F1CA6712A9141AA00587D81 /* FileClient+LiveKey.swift in Sources */,
