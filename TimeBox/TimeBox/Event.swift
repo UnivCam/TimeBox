@@ -12,7 +12,7 @@ struct Event: Reducer {
     struct State: Equatable, Identifiable {
         let id: UUID = UUID()
         @BindingState var description: String = ""
-        var isActive: Bool = false
+        @BindingState var tagColor: String? = nil
     }
     
     enum Action: BindableAction, Equatable, Sendable {
@@ -30,12 +30,8 @@ struct Event: Reducer {
             case .binding:
                 return .none
             case .cancelButtonTapped:
-                state.isActive = false
-                return .run { _ in
-                    await dismiss()
-                }
+                fallthrough
             case .confirmButtonTapped:
-                state.isActive = true
                 return .run { _ in
                     await dismiss()
                 }
@@ -50,8 +46,20 @@ struct EventView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationView {
-                VStack {
-                    TextField("Write down your Todo..", text: viewStore.$description)
+                VStack(alignment: .leading) {
+                    TextField("Title..", text: viewStore.$description)
+
+                    Divider()
+                    
+                    Section {
+                        ColorPanel(colors: .constant(.default)) { color in
+                            viewStore.send(.binding(.set(\.$tagColor, color.toHex())))
+                        }
+                    } header: {
+                        Text("Color Tag")
+                            .bold()
+                    }
+
                     Spacer()
                 }
                 .padding()

@@ -24,6 +24,6 @@ extension Models {
         let description: String
         let startDate: Date
         let endDate: Date
-        let isActive: Bool
+        let tagColor: String?
     }
 }

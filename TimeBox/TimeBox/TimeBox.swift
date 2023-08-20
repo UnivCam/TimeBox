@@ -77,7 +77,7 @@ struct TimeBoxView: View {
                             })
                             .buttonStyle(EventButtonStyle())
                             .foregroundColor(
-                                (viewStore.events[id: id]?.isActive ?? false) ? Color.blue : Color(UIColor.systemGroupedBackground)
+                                Color(hex: viewStore.events[id: id]?.tagColor ?? "") ?? Color(UIColor.systemGroupedBackground)
                             )
                             .overlay(
                                 Text(viewStore.events[id: id]?.description ?? "")

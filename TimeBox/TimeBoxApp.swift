@@ -116,7 +116,7 @@ struct AppFeature: Reducer {
                 switch scenePhase {
                 case .inactive:
                     let todos = state.todos.todos.map { Models.Todo(description: $0.description, hasPriority: $0.hasPriority) }
-                    let events = state.timebox.events.map { Models.Event(description: $0.description, startDate: date(), endDate: date(), isActive: $0.isActive) }
+                    let events = state.timebox.events.map { Models.Event(description: $0.description, startDate: date(), endDate: date(), tagColor: $0.tagColor) }
                     let timeBox = Models.TimeBox(todos: todos, events: events)
                     return .run { _ in
                         let filename = dateFormatter.string(from: date())
@@ -130,7 +130,7 @@ struct AppFeature: Reducer {
                     uniqueElements: timeBox.todos.map { Todo.State(description: $0.description, hasPriority: $0.hasPriority) }
                 )
                 state.timebox.events = IdentifiedArray(
-                    uniqueElements: timeBox.events.map { Event.State(description: $0.description, isActive: $0.isActive) }
+                    uniqueElements: timeBox.events.map { Event.State(description: $0.description, tagColor: $0.tagColor) }
                 )
                 state.isAppLaunched = true
                 return .none

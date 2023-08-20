@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ColorPanel: View {
-    @State var colors: [Color] = []
-    @Binding var selection: Color?
+    @Binding var colors: [Color]
+    @State private var selection: Color? = nil
+    private var didColorSelected: ((Color) -> Void)?
     
-    init(colors: [Color] = .default, selection: Binding<Color?> = .constant(nil)) {
-        self.colors = colors
-        self._selection = selection
+    init(
+        colors: Binding<[Color]>,
+        didColorSelected: ((Color) -> Void)? = nil
+    ) {
+        self._colors = colors
+        self.didColorSelected = didColorSelected
     }
     
     var body: some View {
@@ -27,7 +31,8 @@ struct ColorPanel: View {
                                 .strokeBorder(selection == color ? Color.secondary : Color.white, lineWidth: 3)
                         )
                         .onTapGesture {
-                            selection = color
+                            self.selection = color
+                            self.didColorSelected?(color)
                         }
                 }
                 Button {
@@ -63,6 +68,6 @@ private extension Color {
 
 struct ColorPanel_Previews: PreviewProvider {
     static var previews: some View {
-        ColorPanel(selection: .constant(nil))
+        ColorPanel(colors: .constant(.default))
     }
 }
