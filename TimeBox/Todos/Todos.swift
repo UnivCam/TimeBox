@@ -62,6 +62,7 @@ struct TodosView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
+            .ignoresSafeArea(edges: [.bottom])
         }
     }
 }
