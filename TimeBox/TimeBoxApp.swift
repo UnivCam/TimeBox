@@ -110,12 +110,18 @@ struct AppFeature: Reducer {
                     )
                 }
             case .didChangeScenePhase(let scenePhase):
-                guard case .background = scenePhase else { return .none }
-                let todos = state.todos.todos.map { Models.Todo(description: $0.description, hasPriority: $0.hasPriority) }
-                let events = state.timebox.events.map { Models.Event(description: $0.description, startDate: date(), endDate: date(), isActive: $0.isActive) }
-                let timeBox = Models.TimeBox(todos: todos, events: events)
-                return .run { _ in
-                    try await fileClient.save(timeBox, to: dateFormatter.string(from: date()))
+                switch scenePhase {
+                case .inactive:
+                    let todos = state.todos.todos.map { Models.Todo(description: $0.description, hasPriority: $0.hasPriority) }
+                    let events = state.timebox.events.map { Models.Event(description: $0.description, startDate: date(), endDate: date(), isActive: $0.isActive) }
+                    let timeBox = Models.TimeBox(todos: todos, events: events)
+                    return .run { _ in
+                        let filename = dateFormatter.string(from: date())
+                        try await fileClient.delete(filename)
+                        try await fileClient.save(timeBox, to: filename)
+                    }
+                default:
+                    return .none
                 }
             case .timeBoxLoaded(.success(let timeBox)):
                 state.todos.todos = IdentifiedArray(
